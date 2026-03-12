@@ -1,6 +1,6 @@
 type CarPart = {
     partName: string;
-    runDiagnostics(): string;
+    runDiagnostics: () => string;
 };
 
 type CarBody = {

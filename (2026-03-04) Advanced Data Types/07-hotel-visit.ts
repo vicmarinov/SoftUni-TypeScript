@@ -1,27 +1,28 @@
-type TrainFloor = {
-    number: 1;
-    hallway: 'A' | 'C';
-    train(): void;
-};
-
-type DineFloor = {
-    number: 2;
-    hallway: 'A' | 'C';
-    dine(): void;
-};
-
-type SleepFloor = {
-    number: 3;
-    hallway: 'A' | 'C';
-    sleep(): void;
-};
-
-type PassFloor = (TrainFloor | DineFloor) & {
+type HallwayWithPass = {
     hallway: 'A';
     pass?: 'Guest';
 };
 
-function visitFloor (floor: TrainFloor | DineFloor | SleepFloor | PassFloor) {
+type HallwayWithoutPass = {
+    hallway: 'C';
+};
+
+type TrainFloor = {
+    number: 1;
+    train: () => void;
+} & (HallwayWithPass | HallwayWithoutPass);
+
+type DineFloor = {
+    number: 2;
+    dine: () => void;
+} & (HallwayWithPass | HallwayWithoutPass);
+
+type SleepFloor = {
+    number: 3;
+    sleep: () => void;
+} & (HallwayWithPass | HallwayWithoutPass);
+
+function visitFloor (floor: TrainFloor | DineFloor | SleepFloor) {
     switch (floor.number) {
         case 1: floor.train(); return;
         case 2: floor.dine();  return;
