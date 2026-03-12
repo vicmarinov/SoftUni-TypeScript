@@ -1,5 +1,5 @@
 function printOnlyFridayThe13th (arr: unknown[]): void {
-    enum monthNames {
+    enum MonthNames {
         'January',
         'February',
         'March',
@@ -23,7 +23,7 @@ function printOnlyFridayThe13th (arr: unknown[]): void {
 
         if (isElementFridayThe13th) {
             const day = element.getDate();
-            const month = monthNames[element.getMonth()];
+            const month = MonthNames[element.getMonth()];
             const year = element.getFullYear();
 
             console.log(`${day}-${month}-${year}`);
