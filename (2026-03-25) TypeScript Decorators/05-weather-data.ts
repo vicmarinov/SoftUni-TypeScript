@@ -55,4 +55,5 @@ wetherService.addWeatherData('Partially Cloudy 5° to 11°');
 console.log(wetherService.getWeatherData());
 
 // 7 seconds later:
+
 setTimeout(() => console.log(wetherService.getWeatherData()), 7000);

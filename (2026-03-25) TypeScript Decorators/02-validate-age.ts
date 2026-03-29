@@ -3,14 +3,14 @@ function validateAge (
     key: string,
     descriptor: PropertyDescriptor
 ): PropertyDescriptor {
-    const originalSetter = descriptor.set;
+    const originalSetter = descriptor.set!;
 
     descriptor.set = function (newAge: number) {
         if (newAge < 1 || newAge > 200) {
             throw new Error('Age must be between 1 and 200');
         }
 
-        originalSetter?.call(this, newAge);
+        originalSetter.call(this, newAge);
     }
 
     return descriptor;

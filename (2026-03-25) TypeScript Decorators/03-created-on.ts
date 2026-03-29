@@ -1,6 +1,6 @@
-function addCreatedOn (constructor: { new(...args: any[]): User }) {
+function addCreatedOn<T extends new (...args: any[]) => {}> (constructor: T) {
     return class extends constructor {
-        private createdOn: Date = new Date();
+        public createdOn: Date = new Date();
     }
 }
 

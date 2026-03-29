@@ -1,5 +1,5 @@
 function log (
-    target: object,
+    target: object | Function,
     methodName: string,
     descriptor: PropertyDescriptor
 ): PropertyDescriptor {
